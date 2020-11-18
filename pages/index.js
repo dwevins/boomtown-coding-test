@@ -49,6 +49,7 @@ const Home = () => (
     <Head>
       <title>Notes</title>
       <link rel="icon" href="/favicon.ico" />
+      <script src="https://kit.fontawesome.com/789a1337f8.js" crossorigin="anonymous"></script>
     </Head>
     <Header />
     <Body notes={notes} />
