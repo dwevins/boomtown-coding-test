@@ -1,6 +1,6 @@
 const Header = () => (
   <header>
-    <div class="content-wrapper">
+    <div className="content-wrapper">
       <h1>Notes</h1>
     </div>
   </header>
