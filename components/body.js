@@ -1,6 +1,10 @@
 const Body = () => (
   <div id="body">
-    <h2>Body</h2>
+    <div class="content-wrapper">
+      <div class="flex-grid">
+        
+      </div>
+    </div>
   </div>
 )
 
