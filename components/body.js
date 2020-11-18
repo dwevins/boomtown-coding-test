@@ -2,8 +2,8 @@ const handleAddNewClick = () => {
   console.log('adding new note!');
 }
 
-const renderItem = item => (
-  <div class="flex-grid__item preview">
+const renderItem = (item, index) => (
+  <div class="flex-grid__item preview" key={ index }>
     <h2 className="ta--center">{ item.title }</h2>
     <p>{ item.content }</p>
   </div>
@@ -18,7 +18,7 @@ const Body = ({
           <div class="flex-grid__item preview flex--center" onClick={handleAddNewClick}>
             <i class="fas fa-plus"></i>
           </div>
-        { notes.map(item => renderItem(item)) }
+        { notes.map((item, index) => renderItem(item, index)) }
       </div>
     </div>
   </div>
