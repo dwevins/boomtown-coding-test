@@ -1,6 +1,8 @@
 const Header = () => (
   <header>
-    <h1>header</h1>
+    <div class="content-wrapper">
+      <h1>Notes</h1>
+    </div>
   </header>
 )
 
