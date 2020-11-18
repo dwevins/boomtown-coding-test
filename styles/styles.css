@@ -52,6 +52,13 @@ footer {
   padding: 0 1rem;
 }
 
+.content-wrapper--sm {
+  margin: 0 auto;
+  max-width: 50rem;
+  padding: 0 1rem;
+  border: 1px solid black;
+}
+
 /* 
  * Flex Grid
  */
