@@ -1,6 +1,9 @@
 const Footer = () => (
   <footer>
-    <h3>footer</h3>
+    <div class="content-wrapper">
+      <p className="ta--center">Made in 2020</p>
+      <p className="ta--center">View source on <a href="https://github.com/dwevins">GitHub</a></p>
+    </div>
   </footer>
 )
 
