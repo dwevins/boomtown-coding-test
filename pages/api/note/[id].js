@@ -34,8 +34,19 @@ export default function noteHandler(req, res) {
         res.status('500').end(`error saving changes: ${error}`)
       }
       break
+    case 'DELETE':
+      try {
+        db.get('notes')
+          .remove({ id: id })
+          .write()
+
+        res.status('200').end('success')
+      } catch (error) {
+        res.status('500').end(`error deleting note: ${error}`)
+      }
+      break
     default:
-      res.setHeader('Allow', ['GET', 'PUT'])
+      res.setHeader('Allow', ['GET', 'PUT', 'DELETE'])
       res.status(405).end(`Method ${method} Not Allowed`)
   }
 }
