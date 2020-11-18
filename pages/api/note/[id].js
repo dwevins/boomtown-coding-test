@@ -7,6 +7,7 @@ export default function noteHandler(req, res) {
   const db = low(adapter)
 
   const {
+    body,
     query: { id },
     method,
   } = req
@@ -25,7 +26,7 @@ export default function noteHandler(req, res) {
       try {
         db.get('notes')
           .find({ id: id })
-          .assign({ ...req.body })
+          .assign({ ...body })
           .write() 
 
         res.status('200').end('success')
