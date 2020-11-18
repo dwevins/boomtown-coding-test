@@ -3,7 +3,7 @@ const handleAddNewClick = () => {
 }
 
 const renderItem = (item, index) => (
-  <div class="flex-grid__item preview" key={ index }>
+  <div className="flex-grid__item preview" key={ index }>
     <h2 className="ta--center">{ item.title }</h2>
     <p>{ item.content }</p>
   </div>
@@ -13,10 +13,10 @@ const Body = ({
   notes
 }) => (
   <div id="body">
-    <div class="content-wrapper">
-      <div class="flex-grid">
-          <div class="flex-grid__item preview flex--center" onClick={handleAddNewClick}>
-            <i class="fas fa-plus"></i>
+    <div className="content-wrapper">
+      <div className="flex-grid">
+          <div className="flex-grid__item preview flex--center" onClick={handleAddNewClick}>
+            <i className="fas fa-plus"></i>
           </div>
         { notes.map((item, index) => renderItem(item, index)) }
       </div>
