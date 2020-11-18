@@ -17,7 +17,7 @@ const Home = () => {
         <script src="https://kit.fontawesome.com/789a1337f8.js" crossOrigin="anonymous"></script>
       </Head>
       <Header />
-      <Body notes={data} />
+      <Body notes={ data } />
       <Footer />
     </>
   )
