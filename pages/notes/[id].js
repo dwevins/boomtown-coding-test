@@ -30,7 +30,7 @@ const Note = () => {
     }
   }, [data, error])
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault()
 
     if (busy) return false
@@ -53,35 +53,72 @@ const Note = () => {
     }
   }
 
-  if (error) return <div>Failed to load note</div>
+  const handleDelete = async e => {
+    e.preventDefault()
+
+    if (busy) return false
+
+    setBusy(true)
+    setErr(false)
+
+    if (window.confirm('Are you sure you want to delete this note?')) {
+      try {
+        await fetch(`/api/note/${data.id}`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+  
+        router.push('/')
+      } catch (error) {
+        setErr(error)
+      }
+    } else {
+      setBusy(false)
+    }
+  }
+
+  if (error) return (
+    <>
+      <div id="body">
+        <div className="content-wrapper--sm">
+          <div>Failed to load note</div>
+        </div>
+      </div>
+    </>
+  )
 
   return (
     <>
       <Head>
-        <title>{ data?.title || "loading" }</title>
+        <title>{data?.title || "loading"}</title>
         <link rel="icon" href="/favicon.ico" />
         <script src="https://kit.fontawesome.com/789a1337f8.js" crossOrigin="anonymous"></script>
       </Head>
       <div id="body">
         <div className="content-wrapper--sm">
           <form onSubmit={handleSubmit}>
-            <label>
-              <div className="input-wrapper">
-                <label htmlFor="note-title">
-                  <h3>Note Title</h3>
-                  <input id="note-title" type="text" value={title} onChange={handleTitleChange} disabled={!data || busy}/>
-                </label>
-              </div>
-              <div className="input-wrapper">
-                <label htmlFor="note-content">
-                  <h3>Note Content</h3>
-                  <textarea id="note-content" rows={10} value={content} onChange={handleContentChange} disabled={!data || busy}/>
-                </label>
-              </div>
-              <div className="input-wrapper">
-                <input type="submit" value="Add Note" disabled={!data || busy} />
-              </div>
-            </label>
+            <div className="input-wrapper">
+              <label htmlFor="note-title">
+                <h3>Note Title</h3>
+                <input id="note-title" type="text" value={title} onChange={handleTitleChange} disabled={!data || busy} />
+              </label>
+            </div>
+            <div className="input-wrapper">
+              <label htmlFor="note-content">
+                <h3>Note Content</h3>
+                <textarea id="note-content" rows={10} value={content} onChange={handleContentChange} disabled={!data || busy} />
+              </label>
+            </div>
+            <div className="input-wrapper">
+              <input type="submit" value="Add Note" disabled={!data || busy} />
+            </div>
+            <div className="input-wrapper">
+              <button class="delete-btn" onClick={handleDelete}>
+                <b>DELETE NOTE</b>
+              </button>
+            </div>
           </form>
           {err && (
             <div>
