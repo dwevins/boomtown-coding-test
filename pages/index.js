@@ -4,13 +4,15 @@ import useSwr from 'swr'
 import { fetcher } from '../utils'
 import { Error } from '../components'
 
-const renderItem = (item, index) => (
-  <Link href={ `/notes/${item.id}` } key={index}>
-    <a className="flex-grid__item preview">
-      <h2 className="ta--center">{item.title}</h2>
-    </a>
-  </Link>
-)
+const renderItem = (item, index) => {
+  return (
+    <Link href={ `/notes/${item.id}` } key={index}>
+      <a className="flex-grid__item preview">
+        <h2 className="ta--center">{item.title || '(No Title)'}</h2>
+      </a>
+    </Link>
+  )
+}
 
 const Home = () => {
   const { data, error } = useSwr('/api/notes', fetcher)
