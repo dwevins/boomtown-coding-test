@@ -27,7 +27,7 @@ const New = () => {
     setError(false)
 
     try {
-      const res = await fetch('/api/create', {
+      await fetch('/api/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
