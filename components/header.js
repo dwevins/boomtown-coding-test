@@ -1,5 +1,8 @@
 import Link from 'next/link'
 
+/**
+ * Renders the global header
+ */
 const Header = () => (
   <header>
     <div className="content-wrapper">

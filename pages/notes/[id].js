@@ -5,6 +5,9 @@ import useSwr from 'swr'
 import { fetcher } from '../../utils'
 import { Error } from '../../components'
 
+/**
+ * Renders a view for modifying and/or deleting notes
+ */
 const Note = () => {
   const router = useRouter()
   const { data, error } = useSwr(`/api/note/${router.query.id}`, fetcher)

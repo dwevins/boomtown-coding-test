@@ -1,3 +1,8 @@
+/**
+ * Formatted container for displaying errors when no other content is available
+ * 
+ * @param {string} message 
+ */
 const Error = ({
   message
 }) => (

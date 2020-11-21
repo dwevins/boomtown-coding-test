@@ -1,3 +1,6 @@
+/**
+ * Renders the global footer
+ */
 const Footer = () => (
   <footer>
     <div className="content-wrapper">

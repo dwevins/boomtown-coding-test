@@ -14,7 +14,7 @@ export default function noteHandler(req, res) {
 
   switch (method) {
     case 'GET':
-      // Get data from your database
+      // Get a specific note from the DB
       try {
         res.status(200).json(db.get('notes').find({ id: id }))        
       } catch (error) {
@@ -22,7 +22,7 @@ export default function noteHandler(req, res) {
       }
       break
     case 'PUT':
-      // Update or create data in your database
+      // Update a specific note
       try {
         db.get('notes')
           .find({ id: id })
@@ -35,6 +35,7 @@ export default function noteHandler(req, res) {
       }
       break
     case 'DELETE':
+      // Delete a specific note
       try {
         db.get('notes')
           .remove({ id: id })

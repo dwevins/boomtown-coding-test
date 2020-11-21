@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 
+/**
+ * Renders a view for creating new notes
+ */
 const New = () => {
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
