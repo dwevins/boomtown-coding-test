@@ -79,7 +79,7 @@ const Note = () => {
                 </label>
               </div>
               <div className="input-wrapper">
-                <input type="submit" value="Add Note" disabled={!data || busy}/>
+                <input type="submit" value="Add Note" />
               </div>
             </label>
           </form>
