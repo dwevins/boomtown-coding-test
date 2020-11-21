@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import useSwr from 'swr'
 import { fetcher } from '../../utils'
+import { Error } from '../../components'
 
 const Note = () => {
   const router = useRouter()
@@ -80,13 +81,11 @@ const Note = () => {
   }
 
   if (error) return (
-    <>
-      <div id="body">
-        <div className="content-wrapper--sm">
-          <div>Failed to load note</div>
-        </div>
-      </div>
-    </>
+    <Error message="Failed to load notes" />
+  )
+
+  if (!data) return (
+    <Error message="Loading..." />
   )
 
   return (
@@ -112,7 +111,7 @@ const Note = () => {
               </label>
             </div>
             <div className="input-wrapper">
-              <input type="submit" value="Add Note" disabled={!data || busy} />
+              <input type="submit" value="Update Note" disabled={!data || busy} />
             </div>
             <div className="input-wrapper">
               <button class="delete-btn" onClick={handleDelete}>

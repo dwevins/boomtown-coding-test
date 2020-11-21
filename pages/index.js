@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import useSwr from 'swr'
-import { fetcher } from '../utils';
+import { fetcher } from '../utils'
+import { Error } from '../components'
 
 const renderItem = (item, index) => (
   <Link href={ `/notes/${item.id}` } key={index}>
@@ -14,8 +15,13 @@ const renderItem = (item, index) => (
 const Home = () => {
   const { data, error } = useSwr('/api/notes', fetcher)
 
-  if (error) return <div>Failed to load notes</div>
-  if (!data) return <div>Loading...</div>
+  if (error) return (
+    <Error message="Failed to load notes" />
+  )
+
+  if (!data) return (
+    <Error message="Loading..." />
+  )
 
   return (
     <>
