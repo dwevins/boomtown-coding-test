@@ -6,20 +6,20 @@ const New = () => {
   const [content, setContent] = useState('')
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState(false)
-  const router = useRouter();
-  const titlePH = "What do you want to name this note?";
-  const notePH = "What do you want this note to say?";
+  const router = useRouter()
+  const titlePH = "What do you want to name this note?"
+  const notePH = "What do you want this note to say?"
 
-  const handleTitleChange = (event) => {
-    setTitle(event.target.value);
+  const handleTitleChange = (e) => {
+    setTitle(e.target.value)
   }
 
-  const handleContentChange = (event) => {
-    setContent(event.target.value);
+  const handleContentChange = (e) => {
+    setContent(e.target.value)
   }
 
-  const handleSubmit = async (event) => {
-    event.preventDefault()
+  const handleSubmit = async (e) => {
+    e.preventDefault()
 
     if (busy) return false
 
@@ -50,15 +50,15 @@ const New = () => {
           <form onSubmit={ handleSubmit }>
             <label>
               <div className="input-wrapper">
-                <label for="note-title">
+                <label htmlFor="note-title">
                   <h3>Note Title</h3>
-                  <input id="note-title" type="text" value={title} onChange={handleTitleChange} placeholder={titlePH} />
+                  <input id="note-title" type="text" value={title} onChange={handleTitleChange} placeholder={titlePH} disabled={error || busy}/>
                 </label>
               </div>
               <div className="input-wrapper">
-                <label for="note-content">
+                <label htmlFor="note-content">
                   <h3>Note Content</h3>
-                  <textarea id="note-content" rows={10} value={content} onChange={handleContentChange} placeholder={notePH}/>
+                  <textarea id="note-content" rows={10} value={content} onChange={handleContentChange} placeholder={notePH} disabled={error || busy}/>
                 </label>
               </div>
               <div className="input-wrapper">
@@ -78,4 +78,4 @@ const New = () => {
   )
 }
 
-export default New;
+export default New
