@@ -19,6 +19,10 @@ a {
   text-decoration: none;
 }
 
+textarea {
+  font-family: inherit;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -59,7 +63,6 @@ footer {
   margin: 0 auto;
   max-width: 50rem;
   padding: 0 1rem;
-  border: 1px solid black;
 }
 
 /* 
@@ -118,3 +121,23 @@ footer {
   display: flex;
   justify-content: center;
 }
+
+/*  
+ * Form styles
+ */
+
+ form input,
+ form textarea {
+   border: none;
+   font-size: 1rem;
+   padding: 0.5rem;
+   width: 100%;
+ }
+
+ form .input-wrapper {
+   margin-bottom: 1rem;
+ }
+
+ form input[type="submit"] {
+   cursor: pointer;
+ }

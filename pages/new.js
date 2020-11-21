@@ -7,6 +7,8 @@ const New = () => {
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState(false)
   const router = useRouter();
+  const titlePH = "What do you want to name this note?";
+  const notePH = "What do you want this note to say?";
 
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
@@ -44,16 +46,22 @@ const New = () => {
   return (
     <>
       <div id="body">
-        <div className="content-wrapper--sm ta--center">
+        <div className="content-wrapper--sm">
           <form onSubmit={ handleSubmit }>
             <label>
-              <div>
-                <input type="text" value={ title } onChange={ handleTitleChange } />
+              <div className="input-wrapper">
+                <label for="note-title">
+                  <h3>Note Title</h3>
+                  <input id="note-title" type="text" value={title} onChange={handleTitleChange} placeholder={titlePH} />
+                </label>
               </div>
-              <div>
-                <textarea value={ content } onChange={ handleContentChange }/>
+              <div className="input-wrapper">
+                <label for="note-content">
+                  <h3>Note Content</h3>
+                  <textarea id="note-content" rows={10} value={content} onChange={handleContentChange} placeholder={notePH}/>
+                </label>
               </div>
-              <div>
+              <div className="input-wrapper">
                 <input type="submit" value="Add Note" />
               </div>
             </label>
