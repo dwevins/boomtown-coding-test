@@ -4,6 +4,12 @@ import useSwr from 'swr'
 import { fetcher } from '../utils'
 import { Error } from '../components'
 
+/**
+ * Renders individual note list items
+ * 
+ * @param {Object} item 
+ * @param {Number} index
+ */
 const renderItem = (item, index) => {
   return (
     <Link href={ `/notes/${item.id}` } key={index}>
@@ -14,6 +20,9 @@ const renderItem = (item, index) => {
   )
 }
 
+/**
+ * Renders note list as the homepage
+ */
 const Home = () => {
   const { data, error } = useSwr('/api/notes', fetcher)
 

@@ -3,6 +3,10 @@ const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
 const shortid = require('shortid')
 
+/**
+ * Gets all notes from DB,
+ * Creates db.json with 1 note if not already present
+ */
 export default (req, res) => {
   const adapter = new FileSync('db.json')
   const db = low(adapter)

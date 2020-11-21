@@ -3,6 +3,9 @@ const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
 const shortid = require('shortid')
 
+/**
+ * Adds a note to the DB
+ */
 export default (req, res) => {
   const { body } = req
 
