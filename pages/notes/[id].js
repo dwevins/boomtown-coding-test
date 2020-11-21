@@ -114,7 +114,7 @@ const Note = () => {
               <input type="submit" value="Update Note" disabled={!data || busy} />
             </div>
             <div className="input-wrapper">
-              <button class="delete-btn" onClick={handleDelete}>
+              <button className="delete-btn" onClick={handleDelete}>
                 <b>DELETE NOTE</b>
               </button>
             </div>
