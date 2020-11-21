@@ -1,7 +1,13 @@
+import Link from 'next/link'
+
 const Header = () => (
   <header>
     <div className="content-wrapper">
-      <h1>Notes</h1>
+      <Link href="/">
+        <a>
+          <h1>Notes</h1>
+        </a>
+      </Link>
     </div>
   </header>
 )

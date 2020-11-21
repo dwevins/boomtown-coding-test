@@ -10,9 +10,17 @@ body {
   font-size: 16px;
 }
 
+body {
+  background-color: lavender;
+}
+
 a {
   color: inherit;
   text-decoration: none;
+}
+
+textarea {
+  font-family: inherit;
 }
 
 * {
@@ -27,7 +35,6 @@ a {
 }
 
 #body {
-  background-color: lavender;
   flex-grow: 1;
   padding: 2rem 0 3rem;
 }
@@ -49,6 +56,12 @@ footer {
 .content-wrapper {
   margin: 0 auto;
   max-width: 72rem;
+  padding: 0 1rem;
+}
+
+.content-wrapper--sm {
+  margin: 0 auto;
+  max-width: 50rem;
   padding: 0 1rem;
 }
 
@@ -108,3 +121,34 @@ footer {
   display: flex;
   justify-content: center;
 }
+
+/*  
+ * Form styles
+ */
+
+ form input,
+ form textarea {
+   border: none;
+   font-size: 1rem;
+   padding: 0.5rem;
+   width: 100%;
+ }
+
+ form .input-wrapper {
+   margin-bottom: 1rem;
+ }
+
+ form input[type="submit"] {
+   cursor: pointer;
+ }
+
+ form .delete-btn {
+   display: block;
+   appearance: none;
+   background-color: crimson;
+   border: none;
+   color: #fff;
+   cursor: pointer;
+   margin: 2rem auto 0;
+   padding: 0.5rem;
+ }
